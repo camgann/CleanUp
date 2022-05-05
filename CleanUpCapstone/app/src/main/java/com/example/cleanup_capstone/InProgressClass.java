@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
@@ -22,16 +25,16 @@ public class InProgressClass extends Activity{
     TableLayout tableLayout;
     ArrayList<String> receivedChoice = new ArrayList<String>();
 
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inprogress);
         addListenerOnButton(R.id.backButton, backButton, ButtonSceneClass.class);
         tableLayout = (TableLayout) findViewById(R.id.inProgressTableLayout);
-
-        receiver_msg = (TextView)findViewById(R.id.check);
         Intent intent = getIntent();
         String str = intent.getStringExtra("messageKey");
+        receiver_msg = (TextView)findViewById(R.id.check);
         receiver_msg.setText(str);
         receivedChoice.add((String)receiver_msg.getText());
         addToTable();
@@ -74,5 +77,26 @@ public class InProgressClass extends Activity{
                 startActivity(intent);
             }
         });
+    }
+
+/*    protected void onSavedInstanceState(@NonNull Bundle outState){
+        outState.putString("key",(String)receiver_msg.getText());
+        super.onSaveInstanceState(outState);
+    }
+
+    protected void onRestoreInstantState(@NonNull Bundle savedInstanceState){
+        receivedChoice = savedInstanceState.getStringArrayList("key");
+        Toast.makeText(getApplicationContext(),receivedChoice+"",Toast.LENGTH_SHORT).show();
+        super.onRestoreInstanceState(savedInstanceState);
+    }*/S
+
+    protected void OnResume(){
+        super.onResume();
+        Toast.makeText(getApplicationContext(),"being called",Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+
     }
 }
