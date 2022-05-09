@@ -16,6 +16,7 @@ public class ButtonSceneClass extends Activity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.buttonscene);
+        //buttons if clicked take you to new scene
         addListenerOnButton(R.id.readyButton, readyButton, ReadySceneClass.class);
         addListenerOnButton(R.id.inProgressButton, inProgressButton, InProgressClass.class);
         addListenerOnButton(R.id.newButton, newButton, NewSceneClass.class);

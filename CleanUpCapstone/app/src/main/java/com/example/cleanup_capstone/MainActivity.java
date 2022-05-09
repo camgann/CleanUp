@@ -19,6 +19,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         addListenerOnButton();
+        //original idea: add randomized germ fact, work on that at end if time
     }
 
     public void addListenerOnButton(){

@@ -20,6 +20,7 @@ public class InProgressClass extends Activity{
     Button backButton;
     Button button;
     TextView receiver_msg;
+    TextView receiver_msg2;
     TableRow tableRow;
     TextView textView;
     TableLayout tableLayout;
@@ -37,7 +38,13 @@ public class InProgressClass extends Activity{
         receiver_msg = (TextView)findViewById(R.id.check);
         receiver_msg.setText(str);
         receivedChoice.add((String)receiver_msg.getText());
-        addToTable();
+
+        String date = intent.getStringExtra("messageKey2");
+        receiver_msg2 = (TextView)findViewById(R.id.check2);
+        receiver_msg2.setText(date);
+        System.out.print(receiver_msg);
+        receivedChoice.add((String)receiver_msg2.getText());
+        //addToTable();
 //        for (int i = 0; i < 4; i++) {
 //            tableRow = new TableRow(getApplicationContext());
 //            for (int j = 0; j < 3; j++) {
@@ -88,7 +95,7 @@ public class InProgressClass extends Activity{
         receivedChoice = savedInstanceState.getStringArrayList("key");
         Toast.makeText(getApplicationContext(),receivedChoice+"",Toast.LENGTH_SHORT).show();
         super.onRestoreInstanceState(savedInstanceState);
-    }*/S
+    }*/
 
     protected void OnResume(){
         super.onResume();
